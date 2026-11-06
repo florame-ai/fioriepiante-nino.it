@@ -774,6 +774,26 @@
     }
     .locThumbLink svg{ width: 46px; height: 46px; display:block; }
 
+    /* Google reviews: native disclosure, usable without JavaScript. */
+    .reviews{ margin-top:24px; padding:0 24px; scroll-margin-top:110px; }
+    .reviews summary{ display:flex; align-items:center; gap:12px; min-height:76px; padding:18px 0; cursor:pointer; list-style:none; font-size:clamp(17px, 2.5vw, 21px); font-weight:800; }
+    .reviews summary::-webkit-details-marker{ display:none; }
+    .reviews summary svg{ width:26px; height:26px; flex-shrink:0; color:var(--pink); }
+    .reviews summary::after{ content:'+'; margin-left:auto; font-size:26px; }
+    .reviews[open] summary::after{ content:'−'; }
+    .reviews summary:focus-visible, .reviewCard a:focus-visible, .siteUpdates summary:focus-visible{ outline:3px solid var(--ink); outline-offset:4px; border-radius:8px; }
+    .reviewsIntro{ margin:0 0 20px; color:var(--muted); line-height:1.6; font-weight:600; }
+    .reviewGrid{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:16px; padding-bottom:24px; }
+    .reviewCard{ display:flex; flex-direction:column; align-items:flex-start; gap:10px; padding:20px; border:1px solid var(--stroke); border-radius:var(--radius-md); }
+    .reviewCard h3{ margin:0; font-size:17px; line-height:1.5; }
+    .reviewCard p{ margin:0 0 8px; color:var(--muted); line-height:1.5; }
+    .reviewCard .btn{ margin-top:auto; min-height:44px; white-space:normal; text-align:center; }
+    .siteUpdates{ margin-top:20px; color:var(--muted); font-size:13px; line-height:1.6; }
+    .siteUpdates summary{ cursor:pointer; min-height:44px; padding:10px 0; }
+    .siteUpdates a{ text-decoration:underline; }
+    @media (max-width:900px){ .reviewGrid{ grid-template-columns:1fr; } }
+    @media (max-width:480px){ .reviews{ padding-inline:18px; } .reviewCard .btn{ width:100%; } }
+
     /* Contacts */
     .contactsGrid{
       display:grid;
@@ -1035,7 +1055,7 @@
 }
 </script>
 
-<meta name="site-version" content="1.0.1"></head>
+<meta name="site-version" content="1.1.0"></head>
 
 <body>
   <div class="blobs" aria-hidden="true">
@@ -1509,6 +1529,36 @@
       </div>
     </section>
 
+    <!-- Recensioni Google -->
+    <section aria-label="Recensioni Google">
+      <div class="container">
+        <details class="card reviews" id="recensioni">
+          <summary>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            Lascia una recensione su Google
+          </summary>
+          <p class="reviewsIntro">Com’è stata la tua esperienza? Scegli la sede e raccontala su Google. <strong>Ogni opinione conta.</strong> Per pubblicare serve un account Google; il modulo si apre in una nuova scheda.</p>
+          <div class="reviewGrid">
+            <article class="reviewCard">
+              <h3>Via Chiana</h3>
+              <p>Via Chiana 4, angolo Via Salaria · Trieste</p>
+              <a class="btn primary" href="https://search.google.com/local/writereview?placeid=ChIJvTT7DFRhLxMREXdvOw9Dfk0" target="_blank" rel="noopener noreferrer" aria-label="Scrivi una recensione su Google per la sede di Via Chiana (nuova scheda)">Scrivi su Google ↗</a>
+            </article>
+            <article class="reviewCard">
+              <h3>Piazza Santiago del Cile</h3>
+              <p>Piazza Santiago del Cile · Parioli</p>
+              <a class="btn primary" href="https://search.google.com/local/writereview?placeid=ChIJv1vgeFthLxMR4KBzrPThDMk" target="_blank" rel="noopener noreferrer" aria-label="Scrivi una recensione su Google per la sede di Piazza Santiago del Cile (nuova scheda)">Scrivi su Google ↗</a>
+            </article>
+            <article class="reviewCard">
+              <h3>Viale Maresciallo Pilsudski</h3>
+              <p>Viale Maresciallo Pilsudski 138 · Parioli</p>
+              <a class="btn primary" href="https://search.google.com/local/writereview?placeid=ChIJ79kO44hhLxMRyhvvqJQvclA" target="_blank" rel="noopener noreferrer" aria-label="Scrivi una recensione su Google per la sede di Viale Maresciallo Pilsudski (nuova scheda)">Scrivi su Google ↗</a>
+            </article>
+          </div>
+        </details>
+      </div>
+    </section>
+
     <!-- Contatti -->
     <section id="contatti">
       <div class="container">
@@ -1579,7 +1629,12 @@
           </div>
         </div>
 
-</div>
+        <details class="siteUpdates">
+          <summary>Versione 1.1.0 · Novità del sito</summary>
+          <p><strong>6 novembre 2026</strong> — Nuovo riquadro per lasciare una recensione Google alla sede visitata, utilizzabile anche da telefono e tablet.</p>
+          <a href="./CHANGELOG.md">Tutti gli aggiornamenti</a>
+        </details>
+      </div>
     </footer>
   </main>
 
