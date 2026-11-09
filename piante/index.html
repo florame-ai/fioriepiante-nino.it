@@ -2,57 +2,22 @@
 <html lang="it">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11013620028"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'AW-11013620028');
-
-    // Helper function to delay opening a URL until a gtag event is sent.
-    // It is wired to WhatsApp and phone links because they are quote/contact requests.
-    function gtagSendEvent(url, openedWindow) {
-      var callbackCalled = false;
-      var callback = function () {
-        if (callbackCalled) return;
-        callbackCalled = true;
-        if (typeof url === 'string') {
-          if (openedWindow && !openedWindow.closed) {
-            openedWindow.location = url;
-          } else {
-            window.location = url;
-          }
-        }
-      };
-      setTimeout(callback, 2100);
-      gtag('event', 'ads_conversion_Richiesta_preventivo_1', {
-        'event_callback': callback,
-        'event_timeout': 2000
-      });
-      return false;
-    }
-
-    document.addEventListener('click', function(event) {
-      var link = event.target.closest && event.target.closest('a[href^="https://wa.me/"], a[href^="tel:"]');
-      if (!link || !link.href) return;
-
-      event.preventDefault();
-      var openedWindow = link.target === '_blank' ? window.open('', '_blank') : null;
-      if (openedWindow) openedWindow.opener = null;
-      gtagSendEvent(link.href, openedWindow);
-    });
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="../assets/ads.js" defer></script>
   <title>Galleria Piante — Fiori e Piante di Nino</title>
   <meta name="description" content="Scegli le tue piante preferite e chiedi a Nino qualcosa di simile su WhatsApp." />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://fioriepiante-nino.it/piante/">
+  <link rel="preload" href="../assets/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
+    @font-face {
+      font-family: "Plus Jakarta Sans";
+      src: url("../assets/plus-jakarta-sans-latin.woff2") format("woff2");
+      font-weight: 200 800;
+      font-display: swap;
+    }
+
     :root {
       --primary: #ff2e8f;
       --bg: #fff7fb;
@@ -247,6 +212,12 @@
     }
     .float-wa:hover { transform: scale(1.1); }
     .float-wa img { width: 32px; height: 32px; object-fit: contain; }
+    .languagePicker{
+      position:fixed; left:16px; bottom:16px; z-index:120; display:flex;
+      align-items:center; gap:6px; padding:4px 8px; border-radius:12px;
+      background:#fff; color:#1a1220; box-shadow:0 4px 16px #1a122025; font-size:14px;
+    }
+    .languagePicker select{ font:inherit; min-height:36px; color:inherit; }
   </style>
 </head>
 
@@ -255,7 +226,7 @@
   <header class="header">
     <div class="container nav-row">
       <a href="../" class="brand">
-        <img src="../immagini-home/fiori%20e%20piante%20di%20nino%20logo%20nero.png" alt="Logo">
+        <img src="../immagini-home/nino-icon.webp" alt="Logo">
         Fiori e piante di Nino
       </a>
       <a href="../" class="btn-small">← Torna alla Home</a>
@@ -277,23 +248,25 @@
     </section>
   </main>
 
-  <a href="https://wa.me/393394324010" class="float-wa" aria-label="Scrivici su WhatsApp">
-    <img src="https://raw.githubusercontent.com/matteoawi/fioriepiante-nino.it/main/immagini-home/logo-whatsapp.png" alt="WA">
+  <aside aria-label="Contatto rapido">
+    <a href="https://wa.me/393394324010" class="float-wa" aria-label="Scrivici su WhatsApp">
+    <img src="../immagini-home/whatsapp-icon.webp" alt="WA">
   </a>
+  </aside>
 
   <div id="lb" class="lb">
     <div class="lb-panel">
       <button class="lb-close" id="lbClose">×</button>
 
       <div class="lb-img-wrap">
-        <img id="lbImg" src="" alt="Dettaglio">
+        <img id="lbImg" alt="Dettaglio">
       </div>
 
       <div class="lb-body">
         <h3 class="lb-title">Saresti interessato a qualcosa di simile?</h3>
 
         <a id="lbBtn" href="#" class="btn-wa">
-          <img src="https://raw.githubusercontent.com/matteoawi/fioriepiante-nino.it/main/immagini-home/logo-whatsapp.png" alt="WhatsApp">
+          <img src="../immagini-home/whatsapp-icon.webp" alt="WhatsApp">
           Contatta Nino e mandagli questo esempio
         </a>
 
@@ -395,7 +368,7 @@
     function closeLb() {
       lb.classList.remove("active");
       document.body.style.overflow = "";
-      setTimeout(() => lbImg.src = "", 200);
+      setTimeout(() => { if (!lb.classList.contains("active")) lbImg.removeAttribute("src"); }, 200);
     }
 
     lbClose.addEventListener("click", closeLb);
@@ -406,16 +379,17 @@
     loadMoreBtn.addEventListener("click", loadNext);
     loadNext();
   </script>
-  <div class="gtranslate_wrapper" aria-label="Selettore lingua"></div>
-  <script>
-    window.gtranslateSettings = {
-      default_language: "it",
-      languages: ["it", "en", "fr", "de", "es"],
-      wrapper_selector: ".gtranslate_wrapper",
-      switcher_horizontal_position: "left",
-      switcher_vertical_position: "bottom"
-    };
-  </script>
-  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+  <aside class="languagePicker notranslate" aria-label="Selettore lingua">
+    <label for="siteLanguage">Lingua</label>
+    <select id="siteLanguage">
+      <option value="it" lang="it">Italiano</option>
+      <option value="en" lang="en">English</option>
+      <option value="fr" lang="fr">Français</option>
+      <option value="de" lang="de">Deutsch</option>
+      <option value="es" lang="es">Español</option>
+    </select>
+  </aside>
+  <div class="gtranslate_wrapper" hidden></div>
+  <script src="../assets/language.js" defer></script>
 </body>
 </html>

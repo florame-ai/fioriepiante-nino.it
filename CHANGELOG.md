@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.1 — 2026-11-09
+
+- Alleggerite la foto di apertura e le immagini della homepage.
+- La galleria carica le collezioni e le copertine quando si avvicina allo schermo.
+- Font ospitato sul sito, contrasto migliorato e selettore lingua utilizzabile da tastiera.
+- Traduzione caricata su richiesta. Il tag Google Ads si attiva sugli ingressi pubblicitari e sui clic di contatto.
+
 ## 1.1.0 — 2026-11-06
 
 - Aggiunto un riquadro espandibile dopo le sedi per lasciare una recensione Google a Via Chiana, Piazza Santiago del Cile o Viale Maresciallo Pilsudski.
