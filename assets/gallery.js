@@ -16,8 +16,8 @@ function addPhoto(number) {
   link.href = `./${name}.jpg`;
 
   const image = document.createElement('img');
-  image.width = 480;
-  image.height = 480;
+  image.width = 360;
+  image.height = 360;
   image.loading = 'lazy';
   image.decoding = 'async';
   image.alt = `${label} ${number}`;
