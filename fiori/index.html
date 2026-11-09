@@ -149,7 +149,7 @@
       flex-direction: column; /* Impila immagine e testo */
       animation: pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    @keyframes pop { from {transform: scale(0.95); opacity: 0;} to {transform: scale(1); opacity: 1;} }
+    @keyframes pop { from {transform: scale(0.95); } to {transform: scale(1);} }
 
     .lb-close {
       position: absolute; top: 12px; right: 12px; z-index: 10;
@@ -195,7 +195,7 @@
     .btn-wa img { width: 26px; height: 26px; object-fit: contain; }
 
     .lb-links { margin-top: 16px; }
-    .link-soft { font-size: 14px; color: #666; font-weight: 600; text-decoration: underline; }
+    .link-soft { font-size: 14px; color: #47263a; font-weight: 600; text-decoration: underline; }
 
     /* --- FLOATING CTA --- */
     .float-wa {
@@ -219,9 +219,18 @@
       background:#fff; color:#1a1220; box-shadow:0 4px 16px #1a122025; font-size:14px;
     }
     .languagePicker select{ font:inherit; min-height:36px; color:inherit; }
+    .relatedGalleries { display:flex; flex-wrap:wrap; gap:8px; margin:0 auto 88px; }
+    .relatedGalleries a { display:inline-flex; align-items:center; min-height:44px; padding:0 12px; }
+    .skipGallery { position:fixed; top:8px; left:8px; z-index:2100; background:#fff; padding:12px; transform:translateY(-150%); }
+    .skipGallery:focus { transform:none; }
+    :focus-visible { outline:3px solid #842044; outline-offset:3px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration:0s !important; transition-duration:0s !important; }
+    }
   </style>
 </head>
 <body>
+  <a class="skipGallery" href="#foto">Vai alle foto</a>
 
   <header class="header">
     <div class="container nav-row">
@@ -233,7 +242,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="foto" tabindex="-1">
     <section class="hero">
       <div class="container">
         <h1>Bouquet e composizioni floreali a Roma</h1>
@@ -279,7 +288,7 @@
         </div>
 
         <div class="pager">
-          <button id="loadMore" class="btn-load" type="button" hidden>Vedi altre foto ↓</button>
+          <button id="loadMore" class="btn-load" aria-controls="grid" type="button" hidden>Vedi altre foto ↓</button>
         </div>
         <section class="galleryGuide">
           <h2>Scegli una composizione per la tua occasione</h2>
@@ -289,6 +298,11 @@
       </div>
     </section>
   </main>
+  <nav class="container relatedGalleries" aria-label="Altre gallerie">
+    <a class="btn-small" href="../piante/">Piante</a>
+    <a class="btn-small" href="../addobbi/">Addobbi</a>
+    <a class="btn-small" href="../funebri/">Fiori funebri</a>
+  </nav>
 
   <aside aria-label="Contatto rapido">
     <a href="https://wa.me/393394324010" class="float-wa" aria-label="Scrivici su WhatsApp">
@@ -316,7 +330,7 @@
           <a id="lbOpen" href="#" target="_blank" rel="noopener" class="link-soft">Apri foto intera ↗</a>
         </div>
         
-        <p style="font-size:13px; color:#595959; margin-top:15px; line-height:1.4;">
+        <p style="font-size:13px; color:#47263a; margin-top:15px; line-height:1.4;">
           Premendo il tasto si aprirà WhatsApp con il <b>link della foto già inserito</b>.
         </p>
       </div>

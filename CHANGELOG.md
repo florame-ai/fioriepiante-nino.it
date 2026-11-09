@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.2 — 2026-11-09
+
+- Aggiunte varianti responsive della foto di apertura, con download più leggero quando basta una risoluzione inferiore.
+- Migliorati il contrasto nelle finestre foto e nelle schede delle collezioni e il focus nelle gallerie.
+- Aggiunti collegamenti tra le gallerie, link diretti alle piattaforme di consegna e un indice per la navigazione agentica.
+
 ## 1.3.1 — 2026-11-09
 
 - Il browser può rimandare il rendering delle sezioni della homepage fuori schermo.
