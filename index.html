@@ -901,6 +901,22 @@
 
 
 
+    .skipLink{
+      position:fixed; top:12px; left:12px; z-index:500; padding:12px 16px;
+      background:#fff; color:#57233c; border-radius:12px; transform:translateY(-160%);
+    }
+    .skipLink:focus{ transform:none; }
+    .visuallyHidden{ position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+    :focus-visible{ outline:3px solid #842044; outline-offset:3px; }
+    .languagePicker{ display:flex; align-items:center; gap:8px; margin-top:16px; font-size:.9rem; color:var(--muted); }
+    .languagePicker select{
+      min-height:44px; padding:4px 8px; border:1px solid #d9bdc8; border-radius:8px;
+      background:#fff; color:var(--ink); font:inherit;
+    }
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      *, *::before, *::after{ animation-duration:0s !important; transition-duration:0s !important; }
+    }
 </style>
 
   <!-- Dati Strutturati Schema.org per SEO Locale, GEO e AI Agents -->
@@ -1503,6 +1519,17 @@
           <p><strong>9 novembre 2026</strong> — Nuova homepage, guida all’ordine in quattro passaggi e menu e scelta della sede più facili da usare anche da tastiera.</p>
           <a href="./CHANGELOG.md">Tutti gli aggiornamenti</a>
         </details>
+
+        <aside class="languagePicker notranslate" aria-label="Selettore lingua">
+          <label for="siteLanguage">Lingua</label>
+          <select id="siteLanguage">
+            <option value="it" lang="it">Italiano</option>
+            <option value="en" lang="en">English</option>
+            <option value="fr" lang="fr">Français</option>
+            <option value="de" lang="de">Deutsch</option>
+            <option value="es" lang="es">Español</option>
+          </select>
+        </aside>
       </div>
     </footer>
   </main>
@@ -1738,16 +1765,6 @@
     });
   </script>
 
-  <aside class="languagePicker notranslate" aria-label="Selettore lingua">
-    <label for="siteLanguage">Lingua</label>
-    <select id="siteLanguage">
-      <option value="it" lang="it">Italiano</option>
-      <option value="en" lang="en">English</option>
-      <option value="fr" lang="fr">Français</option>
-      <option value="de" lang="de">Deutsch</option>
-      <option value="es" lang="es">Español</option>
-    </select>
-  </aside>
   <div class="gtranslate_wrapper" hidden></div>
   <script src="./assets/language.js" defer></script>
 </body>
