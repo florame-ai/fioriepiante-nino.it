@@ -917,6 +917,29 @@
       html{ scroll-behavior:auto; }
       *, *::before, *::after{ animation-duration:0s !important; transition-duration:0s !important; }
     }
+    main > section:not(.hero) > .container,
+    main > footer > .container{
+      content-visibility:auto;
+      contain-intrinsic-block-size:auto var(--section-height, 260px);
+    }
+    #come-ordinare{ --section-height:380px; }
+    #pagamenti{ --section-height:1450px; }
+    #contatti{ --section-height:475px; }
+    .reviewsSection{ --section-height:80px; }
+    main > footer{ --section-height:175px; }
+    @media (max-width: 980px){
+      #come-ordinare{ --section-height:650px; }
+      #pagamenti{ --section-height:2500px; }
+      #sedi{ --section-height:630px; }
+      #contatti{ --section-height:850px; }
+      main > footer{ --section-height:250px; }
+    }
+    @media (max-width: 560px){
+      #come-ordinare{ --section-height:1030px; }
+    }
+    .payCircuits summary{
+      min-height:44px; align-content:center; color:#842044; font-weight:800; cursor:pointer;
+    }
 </style>
 
   <!-- Dati Strutturati Schema.org per SEO Locale, GEO e AI Agents -->
@@ -969,7 +992,7 @@
 }
 </script>
 
-<meta name="site-version" content="1.3.0"></head>
+<meta name="site-version" content="1.3.1"></head>
 
 <body>
   <a class="skipLink" href="#top">Vai al contenuto</a>
@@ -1243,9 +1266,10 @@
                 <li>Segui le istruzioni a schermo.</li>
               </ol>
 
-              <div class="payCircuits" aria-label="Circuiti carte accettati">
+              <details class="payCircuits">
+                <summary>Circuiti delle carte accettate</summary>
                 <img src="./immagini-home/circuiti-pagamento.webp" width="480" height="182" loading="lazy" decoding="async" alt="Circuiti carte accettati" />
-              </div>
+              </details>
 
               <a class="btn brand cards" href="https://mypos.com/@fioriepiantenino" target="_blank" style="width:100%; margin-top:10px; justify-content:center;">
                 <svg class="svgLogo" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -1415,7 +1439,7 @@
     </section>
 
     <!-- Recensioni Google -->
-    <section aria-label="Recensioni Google">
+    <section class="reviewsSection" aria-label="Recensioni Google">
       <div class="container">
         <details class="card reviews" id="recensioni">
           <summary>
@@ -1515,8 +1539,8 @@
         </div>
 
         <details class="siteUpdates">
-          <summary>Versione 1.3.0 · Novità del sito</summary>
-          <p><strong>9 novembre 2026</strong> — Nuova homepage, guida all’ordine in quattro passaggi e menu e scelta della sede più facili da usare anche da tastiera.</p>
+          <summary>Versione 1.3.1 · Novità del sito</summary>
+          <p><strong>9 novembre 2026</strong> — Homepage più rapida sui telefoni. L’immagine dei circuiti di pagamento si carica quando la si apre.</p>
           <a href="./CHANGELOG.md">Tutti gli aggiornamenti</a>
         </details>
 
@@ -1638,12 +1662,14 @@
         bentoBox.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--muted); font-weight: 700; padding: 20px;"><a href="https://fiori-italia.it/collections">Vedi le collezioni su Fiori Italia</a></p>';
       }
     }
-    const galleryObserver = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return;
-      galleryObserver.disconnect();
+    const collectionDetails = document.querySelector('.collectionDetails');
+    function loadCollections() {
+      if (!collectionDetails.open) return;
+      collectionDetails.removeEventListener('toggle', loadCollections);
       syncData();
-    });
-    galleryObserver.observe(bentoBox);
+    }
+    collectionDetails.addEventListener('toggle', loadCollections);
+    loadCollections();
 
     const drawer = document.getElementById('drawer');
     const menuBtn = document.getElementById('menuBtn');
@@ -1766,6 +1792,6 @@
   </script>
 
   <div class="gtranslate_wrapper" hidden></div>
-  <script src="./assets/language.js" defer></script>
+  <script src="./assets/language.js" async></script>
 </body>
 </html>

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.1 — 2026-11-09
+
+- Il browser può rimandare il rendering delle sezioni della homepage fuori schermo.
+- L’immagine dei circuiti di pagamento si carica quando si apre il riquadro.
+- Il selettore lingua si inizializza senza bloccare il caricamento del resto della pagina.
+
 ## 1.3.0 — 2026-11-09
 
 - Homepage più compatta con WhatsApp e catalogo in primo piano e una foto di apertura più leggera.

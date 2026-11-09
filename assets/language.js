@@ -34,8 +34,13 @@ try {
   // Mantieni l’italiano se lo storage non è disponibile.
 }
 
-languagePicker.value = currentLanguage;
-if (currentLanguage !== 'it') loadTranslation().catch(() => { languagePicker.value = 'it'; });
+if (currentLanguage !== 'it') {
+  languagePicker.value = currentLanguage;
+  loadTranslation().catch(() => {
+    currentLanguage = 'it';
+    languagePicker.value = currentLanguage;
+  });
+}
 
 languagePicker.addEventListener('change', async () => {
   languagePicker.setCustomValidity('');
