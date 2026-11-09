@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.0 — 2026-11-09
+
+- Homepage più compatta con WhatsApp e catalogo in primo piano e una foto di apertura più leggera.
+- Guida all’ordine in quattro passaggi. Esempi e collezioni online si caricano quando servono.
+- Menu e scelta della sede navigabili da tastiera, con conferma accessibile per la copia dei dati di pagamento.
+
 ## 1.2.0 — 2026-11-09
 
 - Aggiunti collegamenti dalla homepage alle gallerie e una sitemap per i motori di ricerca.

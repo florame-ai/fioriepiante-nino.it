@@ -374,6 +374,11 @@
     /* ========================================================= */
     .galleryLinks{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
     .galleryLinks .btn{ min-height:44px; box-shadow:none; background:#fff; }
+    .collectionDetails{ border-top:1px solid #efdbd6; }
+    .collectionDetails summary{
+      min-height:44px; align-content:center; cursor:pointer;
+      color:#842044; font-weight:800; text-decoration:underline; text-underline-offset:.15em;
+    }
     .bentoGrid{
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -948,7 +953,7 @@
 }
 </script>
 
-<meta name="site-version" content="1.2.0"></head>
+<meta name="site-version" content="1.3.0"></head>
 
 <body>
   <a class="skipLink" href="#top">Vai al contenuto</a>
@@ -1092,8 +1097,8 @@
       <div class="container">
         <div class="sectionTitle">
           <div>
-            <h2>Galleria & Collezioni</h2>
-            <p>Sfoglia le nostre collezioni. Clicca su una categoria per scoprire le composizioni sul catalogo.</p>
+            <h2>Gallerie e collezioni</h2>
+            <p>Scopri le nostre foto per categoria o consulta le collezioni del negozio online.</p>
           </div>
         </div>
 
@@ -1104,9 +1109,12 @@
           <a class="btn" href="./funebri/">Fiori funebri</a>
         </nav>
 
-        <div class="bentoGrid" id="bentoCollections">
-          <p><a href="https://fiori-italia.it/collections">Vedi le collezioni su Fiori Italia</a></p>
-        </div>
+        <details class="collectionDetails">
+          <summary>Mostra le collezioni online</summary>
+          <div class="bentoGrid" id="bentoCollections">
+            <p><a href="https://fiori-italia.it/collections">Vedi le collezioni su Fiori Italia</a></p>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -1403,17 +1411,17 @@
             <article class="reviewCard">
               <h3>Via Chiana</h3>
               <p>Via Chiana 4, angolo Via Salaria · Trieste</p>
-              <a class="btn primary" href="https://search.google.com/local/writereview?placeid=ChIJvTT7DFRhLxMREXdvOw9Dfk0" target="_blank" rel="noopener noreferrer" aria-label="Scrivi una recensione su Google per la sede di Via Chiana (nuova scheda)">Scrivi su Google ↗</a>
+              <a class="btn primary" href="https://search.google.com/local/writereview?placeid=ChIJvTT7DFRhLxMREXdvOw9Dfk0" target="_blank" rel="noopener noreferrer" aria-label="Scrivi su Google per la sede di Via Chiana (nuova scheda)">Scrivi su Google <span aria-hidden="true">↗</span></a>
             </article>
             <article class="reviewCard">
               <h3>Piazza Santiago del Cile</h3>
               <p>Piazza Santiago del Cile · Parioli</p>
-              <a class="btn primary" href="https://search.google.com/local/writereview?placeid=ChIJv1vgeFthLxMR4KBzrPThDMk" target="_blank" rel="noopener noreferrer" aria-label="Scrivi una recensione su Google per la sede di Piazza Santiago del Cile (nuova scheda)">Scrivi su Google ↗</a>
+              <a class="btn primary" href="https://search.google.com/local/writereview?placeid=ChIJv1vgeFthLxMR4KBzrPThDMk" target="_blank" rel="noopener noreferrer" aria-label="Scrivi su Google per la sede di Piazza Santiago del Cile (nuova scheda)">Scrivi su Google <span aria-hidden="true">↗</span></a>
             </article>
             <article class="reviewCard">
               <h3>Viale Maresciallo Pilsudski</h3>
               <p>Viale Maresciallo Pilsudski 138 · Parioli</p>
-              <a class="btn primary" href="https://search.google.com/local/writereview?placeid=ChIJ79kO44hhLxMRyhvvqJQvclA" target="_blank" rel="noopener noreferrer" aria-label="Scrivi una recensione su Google per la sede di Viale Maresciallo Pilsudski (nuova scheda)">Scrivi su Google ↗</a>
+              <a class="btn primary" href="https://search.google.com/local/writereview?placeid=ChIJ79kO44hhLxMRyhvvqJQvclA" target="_blank" rel="noopener noreferrer" aria-label="Scrivi su Google per la sede di Viale Maresciallo Pilsudski (nuova scheda)">Scrivi su Google <span aria-hidden="true">↗</span></a>
             </article>
           </div>
         </details>
@@ -1491,8 +1499,8 @@
         </div>
 
         <details class="siteUpdates">
-          <summary>Versione 1.2.0 · Novità del sito</summary>
-          <p><strong>9 novembre 2026</strong> — Gallerie consultabili dalla homepage, con miniature più leggere e nuove guide per scegliere fiori, piante e addobbi.</p>
+          <summary>Versione 1.3.0 · Novità del sito</summary>
+          <p><strong>9 novembre 2026</strong> — Nuova homepage, guida all’ordine in quattro passaggi e menu e scelta della sede più facili da usare anche da tastiera.</p>
           <a href="./CHANGELOG.md">Tutti gli aggiornamenti</a>
         </details>
       </div>
