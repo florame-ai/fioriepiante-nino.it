@@ -4,7 +4,7 @@
 
 - Il browser può rimandare il rendering delle sezioni della homepage fuori schermo.
 - L’immagine dei circuiti di pagamento si carica quando si apre il riquadro.
-- Il selettore lingua si inizializza senza bloccare il caricamento del resto della pagina.
+- Il selettore lingua evita aggiornamenti quando la lingua iniziale è già italiano.
 
 ## 1.3.0 — 2026-11-09
 
