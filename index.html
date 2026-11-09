@@ -20,8 +20,8 @@
   <link rel="apple-touch-icon" href="./immagini-home/fiori%20e%20piante%20di%20nino%20logo%20nero.png">
 
   <link rel="canonical" href="https://fioriepiante-nino.it/">
-  <link rel="preload" as="image" href="./immagini-home/hero-mobile.webp" media="(max-width: 640px)" fetchpriority="high">
-  <link rel="preload" as="image" href="./immagini-home/hero-desktop.webp" media="(min-width: 641px)" fetchpriority="high">
+  <link rel="preload" as="image" href="./immagini-home/hero-mobile.avif" type="image/avif" media="(max-width: 640px)" fetchpriority="high">
+  <link rel="preload" as="image" href="./immagini-home/hero-desktop.avif" type="image/avif" media="(min-width: 641px)" fetchpriority="high">
   <link rel="preload" href="./assets/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
@@ -440,6 +440,7 @@
     /* ========================================================= */
     /* GALLERIA A BENTO GRID (COLLEZIONI SHOPPING CON LINK ESTERNO) */
     /* ========================================================= */
+    .galleryLinks{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
     .bentoGrid{
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1024,7 +1025,7 @@
 }
 </script>
 
-<meta name="site-version" content="1.1.1"></head>
+<meta name="site-version" content="1.2.0"></head>
 
 <body>
   <div class="blobs" aria-hidden="true">
@@ -1142,6 +1143,8 @@
       <div class="container">
         <div class="heroMain">
           <picture class="heroPhoto">
+            <source type="image/avif" media="(max-width: 640px)" srcset="./immagini-home/hero-mobile.avif">
+            <source type="image/avif" media="(min-width: 641px)" srcset="./immagini-home/hero-desktop.avif">
             <source media="(max-width: 640px)" srcset="./immagini-home/hero-mobile.webp">
             <img src="./immagini-home/hero-desktop.webp" alt="" width="1440" height="960" fetchpriority="high">
           </picture>
@@ -1207,6 +1210,13 @@
             <p>Sfoglia le nostre collezioni. Clicca su una categoria per scoprire le composizioni sul catalogo.</p>
           </div>
         </div>
+
+        <nav class="galleryLinks" aria-label="Gallerie di Fiori e Piante di Nino">
+          <a class="btn" href="./fiori/">Fiori</a>
+          <a class="btn" href="./piante/">Piante</a>
+          <a class="btn" href="./addobbi/">Addobbi</a>
+          <a class="btn" href="./funebri/">Fiori funebri</a>
+        </nav>
 
         <div class="bentoGrid" id="bentoCollections">
           <p><a href="https://fiori-italia.it/collections">Vedi le collezioni su Fiori Italia</a></p>
@@ -1603,8 +1613,8 @@
         </div>
 
         <details class="siteUpdates">
-          <summary>Versione 1.1.1 · Novità del sito</summary>
-          <p><strong>9 novembre 2026</strong> — Foto più leggere, galleria caricata quando serve e pulsanti più leggibili.</p>
+          <summary>Versione 1.2.0 · Novità del sito</summary>
+          <p><strong>9 novembre 2026</strong> — Gallerie consultabili dalla homepage, con miniature più leggere e nuove guide per scegliere fiori, piante e addobbi.</p>
           <a href="./CHANGELOG.md">Tutti gli aggiornamenti</a>
         </details>
       </div>

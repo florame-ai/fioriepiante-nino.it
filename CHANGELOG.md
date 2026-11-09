@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0 — 2026-11-09
+
+- Aggiunti collegamenti dalla homepage alle gallerie e una sitemap per i motori di ricerca.
+- Gallerie con miniature WebP, anteprime navigabili da tastiera e guide per preparare una richiesta.
+- Immagine di apertura in AVIF sui browser compatibili, con WebP come alternativa.
+
 ## 1.1.1 — 2026-11-09
 
 - Alleggerite la foto di apertura e le immagini della homepage.
